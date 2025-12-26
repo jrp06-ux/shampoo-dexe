@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shampoo Dexe Negro | Compra segura</title>
+  <meta name="description"
+    content="Shampoo Dexe Negro. Cubre canas mientras te lavas. Paga fácil con Wompi. Envíos a todo el país.">
+
+  <meta property="og:title" content="Shampoo Dexe Negro">
+  <meta property="og:description" content="Cubre canas mientras te lavas. Compra segura y envío a todo el país.">
+  <meta property="og:image" content="producto.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+  <script src="https://checkout.wompi.co/widget.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f3f5f8;
+      color: #222;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: #fff;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .brand img {
+      height: 50px;
+    }
+
+    .brand span {
+      font-weight: 600;
+      color: #0b4fa3;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ffffff, #f9fbff);
+      border-radius: 20px;
+      padding: 35px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .1);
+      margin-top: 20px;
+    }
+
+    h1 {
+      color: #0b4fa3;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 17px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 30px;
+      font-weight: 900;
+      color: #0b4fa3;
+      background: #eef3ff;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    select {
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #ffd400;
+      border: none;
+      padding: 18px 30px;
+      font-size: 18px;
+      font-weight: 900;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 212, 0, .4);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 14px 24px;
+      background: #eaeaea;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .trust {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .image img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+    }
+
+    .section {
+      background: #fff;
+      margin-top: 40px;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .feature {
+      background: #eef3ff;
+      padding: 18px;
+      border-radius: 14px;
+      font-weight: 600;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .testimonial {
+      background: linear-gradient(135deg, #ffffff, #f7f9ff);
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+      text-align: center;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .15);
+    }
+
+    .testimonial p {
+      font-size: 15px;
+      color: #333;
+      margin: 15px 0;
+      line-height: 1.5;
+    }
+
+    .testimonial span {
+      font-size: 13px;
+      color: #777;
+    }
+
+    .stars {
+      color: #ffd400;
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+
+    .urgency {
+      background: linear-gradient(135deg, #0b4fa3, #083b7a);
+      color: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: 40px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .2);
+    }
+
+    .urgency h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .urgency p {
+      font-size: 18px;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .testimonial {
+      background: #f3f5f8;
+      padding: 20px;
+      border-radius: 16px;
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      margin: 40px 0 0;
+      font-size: 14px;
+      background: #0b4fa3;
+      color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="brand">
+      <img src="logo carlitos.png" alt="Carlitos le vende">
+      <span>Carlitos le vende®<br>Importador directo</span>
+    </div>
+
+    <div class="hero">
+      <div>
+        <h1>Shampoo Dexe Negro</h1>
+        <p class="subtitle">
+          Cubre canas mientras te lavas.<br>
+          Sin tintes complicados, sin salón.
+        </p>
+
+        <div class="price" id="total">$60.000 COP</div>
+
+        <label for="cantidad"><strong>Cantidad</strong></label><br>
+        <select id="cantidad" onchange="actualizarTotal()">
+          <option value="1">1 unidad</option>
+          <option value="2">2 unidades</option>
+          <option value="3">3 unidades</option>
+          <option value="4">4 unidades</option>
+          <option value="5">5 unidades</option>
+        </select>
+
+        <br>
+
+        <button onclick="pagar()">💳 Pagar ahora</button><br>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAVPIaMjcD-vBKciB3pn3Kda0m-cEofcguaG0WrXBR-HLjlA/viewform?usp=sharing"
+          class="btn-secondary">
+          Pago contra entrega
+        </a>
+
+        <div class="trust">
+          🔒 Pago seguro con Wompi<br>
+          🚚 Envíos a todo el país
+        </div>
+      </div>
+
+      <div class="image">
+        <img src="producto.png" alt="Shampoo Dexe Negro">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>¿Por qué elegir Shampoo Dexe?</h2>
+      <div class="features">
+        <div class="feature">✔ Se usa como shampoo normal</div>
+        <div class="feature">✔ Cubre canas progresivamente</div>
+        <div class="feature">✔ Color negro natural</div>
+        <div class="feature">✔ Ahorra tiempo y dinero</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Opiniones reales</h2>
+
+      <div class="testimonials">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>“Desde la segunda lavada se nota el cambio.”</p>
+          <span>Cliente verificado</span>
+        </div>
+
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>“No mancha y el color queda natural.”</p>
+          <span>Compra confirmada</span>
+        </div>
+
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>“Llegó rápido y bien empacado.”</p>
+          <span>Envío nacional</span>
+        </div>
+      </div>
+    </div>
+    >
+
+    <div class="urgency">
+      <h2>⏰ Promoción por tiempo limitado</h2>
+      <p>Unidades disponibles con envío inmediato.<br>No garantizamos precio después de hoy.</p>
+    </div>
+
+    <footer>
+      © 2025 • Carlitos le vende®
+    </footer>
+
+  </div>
+
+  <script>
+    const PRECIO = 60000;
+    const PUBLIC_KEY = "pub_prod_fciWz0TH0thvRZMMQdk2HgwBJZzZAxor";
+
+    function actualizarTotal() {
+      const cantidad = document.getElementById("cantidad").value;
+      const total = PRECIO * cantidad;
+      document.getElementById("total").innerText =
+        `$${total.toLocaleString("es-CO")} COP`;
+    }
+
+    function pagar() {
+      const cantidad = document.getElementById("cantidad").value;
+      const total = PRECIO * cantidad;
+
+      const checkout = new WidgetCheckout({
+        currency: "COP",
+        amountInCents: total * 100,
+        reference: "dexe-" + Date.now(),
+        publicKey: PUBLIC_KEY,
+        redirectUrl: "https://jrp06-ux.github.io/shampoo-dexe/"
+      });
+
+      checkout.open(function (result) {
+        console.log("Resultado del pago:", result);
+      });
+    }
+  </script>
+
+</body>
+
+</html>
+
+
+
+Gemini_Generated_Image_ru6k06ru6k06ru6k.png
