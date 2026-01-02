@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet" />
   <script src="https://checkout.wompi.co/widget.js"></script>
 
+
   <style>
     :root {
       --primary: #2563eb;
@@ -406,83 +407,89 @@
 
   </div>
 
- <script>
-document.addEventListener("DOMContentLoaded", () => {
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
 
-  const PRECIO = 60000;
-  const PUBLIC_KEY = "pub_prod_fciWz0TH0thvRZMMQdk2HgwBJZzZAxor";
+      const PRECIO = 60000;
+      const PUBLIC_KEY = "pub_prod_fciWz0TH0thvRZMMQdk2HgwBJZzZAxor";
 
-  const totalEl = document.getElementById("total");
-  const cantidadEl = document.getElementById("cantidad");
+      const totalEl = document.getElementById("total");
+      const cantidadEl = document.getElementById("cantidad");
 
-  // Actualiza total en pantalla según cantidad
-  function actualizarTotal() {
-    const cantidad = Number(cantidadEl.value);
-    totalEl.innerText = `$${(PRECIO * cantidad).toLocaleString("es-CO")} COP`;
-  }
+      let widgetReady = false;
 
-  window.actualizarTotal = actualizarTotal;
+      const wompiScript = document.createElement("script");
+      wompiScript.src = "https://checkout.wompi.co/widget.js";
+      wompiScript.onload = () => {
+        widgetReady = true;
+        console.log("Widget Wompi cargado ✅");
+      };
+      document.body.appendChild(wompiScript);
 
-  // Inicializa total al cargar
-  actualizarTotal();
+      function actualizarTotal() {
+        const cantidad = Number(cantidadEl.value);
+        totalEl.innerText = `$${(PRECIO * cantidad).toLocaleString("es-CO")} COP`;
+      }
+      window.actualizarTotal = actualizarTotal;
 
-  // Función para abrir Wompi Checkout
-  window.pagar = function() {
-    const cantidad = Number(cantidadEl.value);
-    const total = PRECIO * cantidad;
+      actualizarTotal();
 
-    if (typeof WidgetCheckout === "undefined") {
-      alert("El sistema de pago aún no se ha cargado. Por favor recarga la página.");
-      return;
-    }
+      window.pagar = function () {
+        const cantidad = Number(cantidadEl.value);
+        const total = PRECIO * cantidad;
 
-    const checkout = new WidgetCheckout({
-      currency: "COP",
-      amountInCents: total * 100, // en centavos
-      reference: "dexe-" + Date.now(),
-      publicKey: PUBLIC_KEY,
-      redirectUrl: window.location.href // vuelve a tu página al finalizar
+        if (!widgetReady || typeof WidgetCheckout === "undefined") {
+          alert("El sistema de pago aún no se ha cargado. Por favor recarga la página.");
+          return;
+        }
+
+        const checkout = new WidgetCheckout({
+          currency: "COP",
+          amountInCents: total * 100,
+          reference: "dexe-" + Date.now(),
+          publicKey: PUBLIC_KEY,
+          redirectUrl: window.location.href
+        });
+
+        checkout.open();
+      };
+
+      const track = document.querySelector('.carousel-track');
+      const dots = document.querySelectorAll('.dot');
+
+      if (track && dots.length > 0) {
+        let index = 0;
+
+        function updateCarousel() {
+          track.style.transform = `translateX(-${index * 100}%)`;
+          dots.forEach(dot => dot.classList.remove('active'));
+          dots[index].classList.add('active');
+        }
+
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', () => {
+            index = i;
+            updateCarousel();
+          });
+        });
+
+        let startX = 0;
+
+        track.addEventListener('touchstart', e => {
+          startX = e.touches[0].clientX;
+        });
+
+        track.addEventListener('touchend', e => {
+          const endX = e.changedTouches[0].clientX;
+          if (startX - endX > 50 && index < dots.length - 1) index++;
+          if (endX - startX > 50 && index > 0) index--;
+          updateCarousel();
+        });
+      }
+
     });
+  </script>
 
-    checkout.open();
-  };
-
-  // --- Carrusel ---
-  const track = document.querySelector('.carousel-track');
-  const dots = document.querySelectorAll('.dot');
-
-  if (track && dots.length > 0) {
-    let index = 0;
-
-    function updateCarousel() {
-      track.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-    }
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        index = i;
-        updateCarousel();
-      });
-    });
-
-    let startX = 0;
-
-    track.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-    });
-
-    track.addEventListener('touchend', e => {
-      const endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50 && index < dots.length - 1) index++;
-      if (endX - startX > 50 && index > 0) index--;
-      updateCarousel();
-    });
-  }
-
-});
-</script>
 
 
 
