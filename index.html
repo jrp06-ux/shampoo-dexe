@@ -25,7 +25,9 @@
       --neon: 0 0 25px rgba(37, 99, 235, .6);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -42,7 +44,9 @@
       padding: 20px;
     }
 
-    .logo { height: 80px; }
+    .logo {
+      height: 80px;
+    }
 
     .whatsapp-float {
       position: fixed;
@@ -74,7 +78,7 @@
 
     .hero {
       margin-top: 30px;
-      background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.03));
+      background: linear-gradient(135deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .03));
       border-radius: 32px;
       padding: 32px;
       display: grid;
@@ -82,16 +86,31 @@
       gap: 30px;
     }
 
-    .carousel { overflow: hidden; border-radius: 28px; }
-    .carousel-track { display: flex; transition: transform .6s ease; }
-    .carousel img { width: 100%; flex-shrink: 0; }
+    .carousel {
+      overflow: hidden;
+      border-radius: 28px;
+    }
 
-    .hero-info { display: flex; flex-direction: column; gap: 14px; }
+    .carousel-track {
+      display: flex;
+      transition: transform .6s ease;
+    }
+
+    .carousel img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .hero-info {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
     h1 {
-      font-size: clamp(2.4rem,6vw,3.2rem);
+      font-size: clamp(2.4rem, 6vw, 3.2rem);
       font-weight: 900;
-      background: linear-gradient(135deg,#fff,#93c5fd);
+      background: linear-gradient(135deg, #fff, #93c5fd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -99,14 +118,15 @@
     .price {
       font-size: 32px;
       font-weight: 900;
-      background: linear-gradient(135deg,var(--secondary),#fde68a);
+      background: linear-gradient(135deg, var(--secondary), #fde68a);
       color: #000;
       padding: 12px 22px;
       border-radius: 16px;
       width: fit-content;
     }
 
-    select, button {
+    select,
+    button {
       padding: 14px;
       border-radius: 16px;
       border: none;
@@ -114,19 +134,22 @@
     }
 
     button {
-      background: linear-gradient(135deg,#2563eb,#60a5fa);
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
       color: #fff;
       font-weight: 900;
       cursor: pointer;
     }
 
-    button:disabled { opacity: .6; cursor: not-allowed; }
+    button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
 
     .btn-secondary {
       margin-top: 12px;
       padding: 14px;
       border-radius: 16px;
-      background: rgba(255,255,255,.15);
+      background: rgba(255, 255, 255, .15);
       color: #fff;
       text-decoration: none;
       text-align: center;
@@ -139,8 +162,10 @@
       border-radius: 30px;
     }
 
-    .feature, .testimonial, .trust-box {
-      background: rgba(255,255,255,.1);
+    .feature,
+    .testimonial,
+    .trust-box {
+      background: rgba(255, 255, 255, .1);
       padding: 18px;
       border-radius: 18px;
       margin-bottom: 12px;
@@ -148,12 +173,12 @@
 
     .trust-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
     }
 
     .urgency {
-      background: linear-gradient(135deg,#2563eb,#1e3a8a);
+      background: linear-gradient(135deg, #2563eb, #1e3a8a);
       padding: 34px;
       border-radius: 32px;
       text-align: center;
@@ -165,122 +190,139 @@
       padding: 20px;
       text-align: center;
       border-radius: 20px;
-      background: rgba(255,255,255,.1);
+      background: rgba(255, 255, 255, .1);
     }
 
     @media (max-width:768px) {
-      .hero { grid-template-columns: 1fr; }
+      .hero {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<a href="https://wa.me/573123262091" class="whatsapp-float" target="_blank">💬</a>
+  <a href="https://wa.me/573123262091" class="whatsapp-float" target="_blank">💬</a>
 
-<div class="container">
+  <div class="container">
 
-  <div class="brand">
-    <img src="logo carlitos.png" class="logo">
-    <span>Carlitos le vende®<br>Importador directo</span>
-  </div>
+    <div class="brand">
+      <img src="logo carlitos.png" class="logo">
+      <span>Carlitos le vende®<br>Importador directo</span>
+    </div>
 
-  <div class="hero">
-    <div class="carousel">
-      <div class="carousel-track">
-        <img src="producto.png">
-        <img src="producto2.png">
-        <img src="producto3.png">
+    <div class="hero">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="producto.png">
+          <img src="producto2.png">
+          <img src="producto3.png">
+        </div>
+      </div>
+
+      <div class="hero-info">
+        <h1>Shampoo Dexe Negro</h1>
+        <p>Cubre canas mientras te lavas. Sin tintes. Sin estrés.</p>
+
+        <div class="price" id="total">$60.000 COP</div>
+
+        <select id="cantidad" onchange="actualizarTotal()">
+          <option value="1">1 unidad</option>
+          <option value="2">2 unidades</option>
+          <option value="3">3 unidades</option>
+          <option value="4">4 unidades</option>
+          <option value="5">5 unidades</option>
+          <option value="6">6 unidades</option>
+        </select>
+
+        <button onclick="pagar()">💳 Pagar ahora</button>
+
+        <a class="btn-secondary" href="#">Pago contra entrega</a>
       </div>
     </div>
 
-    <div class="hero-info">
-      <h1>Shampoo Dexe Negro</h1>
-      <p>Cubre canas mientras te lavas. Sin tintes. Sin estrés.</p>
-
-      <div class="price" id="total">$60.000 COP</div>
-
-      <select id="cantidad" onchange="actualizarTotal()">
-        <option value="1">1 unidad</option>
-        <option value="2">2 unidades</option>
-        <option value="3">3 unidades</option>
-      </select>
-
-      <button onclick="pagar()">💳 Pagar ahora</button>
-
-      <a class="btn-secondary" href="#">Pago contra entrega</a>
+    <!-- POR QUÉ ELEGIR -->
+    <div class="section">
+      <h2>¿Por qué elegir Shampoo Dexe?</h2><br>
+      <div class="feature">✔ Se usa como shampoo normal</div>
+      <div class="feature">✔ Cubre canas progresivamente</div>
+      <div class="feature">✔ No mancha la piel</div>
+      <div class="feature">✔ Resultados visibles desde las primeras lavadas</div>
     </div>
-  </div>
 
-  <!-- POR QUÉ ELEGIR -->
-  <div class="section">
-    <h2>¿Por qué elegir Shampoo Dexe?</h2><br>
-    <div class="feature">✔ Se usa como shampoo normal</div>
-    <div class="feature">✔ Cubre canas progresivamente</div>
-    <div class="feature">✔ No mancha la piel</div>
-    <div class="feature">✔ Resultados visibles desde las primeras lavadas</div>
-  </div>
-
-  <!-- TESTIMONIOS -->
-  <div class="section">
-    <h2>Opiniones reales</h2><br>
-    <div class="testimonial">★★★★★ “Desde la segunda lavada se nota.”</div>
-    <div class="testimonial">★★★★★ “No mancha y el color queda natural.”</div>
-    <div class="testimonial">★★★★★ “Llegó rápido y bien empacado.”</div>
-  </div>
-
-  <!-- NUEVA SECCIÓN DE CONFIANZA -->
-  <div class="section">
-    <h2>Compra con tranquilidad</h2><br>
-    <div class="trust-grid">
-      <div class="trust-box">🔒 Pagos 100% seguros con Wompi</div>
-      <div class="trust-box">🚚 Envíos a todo Colombia</div>
-      <div class="trust-box">📦 Empaque discreto y protegido</div>
-      <div class="trust-box">💬 Soporte real por WhatsApp</div>
+    <!-- TESTIMONIOS -->
+    <div class="section">
+      <h2>Opiniones reales</h2><br>
+      <div class="testimonial">★★★★★ “Desde la segunda lavada se nota.”</div>
+      <div class="testimonial">★★★★★ “No mancha y el color queda natural.”</div>
+      <div class="testimonial">★★★★★ “Llegó rápido y bien empacado.”</div>
     </div>
+
+    <!-- NUEVA SECCIÓN DE CONFIANZA -->
+    <div class="section">
+      <h2>Compra con tranquilidad</h2><br>
+      <div class="trust-grid">
+        <div class="trust-box">🔒 Pagos 100% seguros con Wompi</div>
+        <div class="trust-box">🚚 Envíos a todo Colombia</div>
+        <div class="trust-box">📦 Empaque discreto y protegido</div>
+        <div class="trust-box">💬 Soporte real por WhatsApp</div>
+      </div>
+    </div>
+
+    <!-- URGENCIA -->
+    <div class="urgency">
+      <h2>⏰ Promoción limitada</h2>
+      <p>Unidades disponibles con envío inmediato.</p>
+    </div>
+
+    <footer>
+      © 2025 • Carlitos le vende®
+    </footer>
+
   </div>
 
-  <!-- URGENCIA -->
-  <div class="urgency">
-    <h2>⏰ Promoción limitada</h2>
-    <p>Unidades disponibles con envío inmediato.</p>
-  </div>
 
-  <footer>
-    © 2025 • Carlitos le vende®
-  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const PRECIO = 60000;
 
-</div>
+      const totalEl = document.getElementById("total");
+      const cantidadEl = document.getElementById("cantidad");
+      const btnPagar = document.querySelector("button");
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const PRECIO = 60000;
-  const PUBLIC_KEY = "pub_prod_fciWz0TH0thvRZMMQdk2HgwBJZzZAxor";
-  const totalEl = document.getElementById("total");
-  const cantidadEl = document.getElementById("cantidad");
+      const WOMPI_LINKS = {
+        1: "https://checkout.wompi.co/l/TIKIXG",
+        2: "https://checkout.wompi.co/l/6OIA5t",
+        3: "https://checkout.wompi.co/l/x9eXVG",
+        4: "https://checkout.wompi.co/l/JYxrPh",
+        5: "https://checkout.wompi.co/l/zWCMMQ",
+        6: "https://checkout.wompi.co/l/nZ1Dsn"
+      };
 
-  function actualizarTotal() {
-    totalEl.innerText = `$${(PRECIO * cantidadEl.value).toLocaleString("es-CO")} COP`;
-  }
-  window.actualizarTotal = actualizarTotal;
-  actualizarTotal();
+      function actualizarTotal() {
+        const cantidad = Number(cantidadEl.value);
+        totalEl.innerText =
+          `$${(PRECIO * cantidad).toLocaleString("es-CO")} COP`;
+      }
 
-  const script = document.createElement("script");
-  script.src = "https://checkout.wompi.co/widget.js";
-  document.body.appendChild(script);
+      actualizarTotal();
+      cantidadEl.addEventListener("change", actualizarTotal);
 
-  window.pagar = () => {
-    const checkout = new WidgetCheckout({
-      currency: "COP",
-      amountInCents: PRECIO * cantidadEl.value * 100,
-      reference: "dexe-" + Date.now(),
-      publicKey: PUBLIC_KEY,
-      redirectUrl: window.location.href
+      btnPagar.addEventListener("click", () => {
+        const cantidad = Number(cantidadEl.value);
+        const link = WOMPI_LINKS[cantidad];
+
+        if (!link) {
+          alert("Cantidad no disponible");
+          return;
+        }
+
+        window.location.href = link;
+      });
     });
-    checkout.open();
-  };
-});
-</script>
+  </script>
 
 </body>
+
 </html>
